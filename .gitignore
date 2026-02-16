@@ -1,0 +1,9 @@
+# Ignore our passwords!
+secrets/
+
+# Ignore massive frontend compilation folders
+frontend/node_modules/
+frontend/dist/
+
+# Ignore Python cache files
+backend/__pycache__/

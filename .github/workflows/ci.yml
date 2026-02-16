@@ -1,0 +1,26 @@
+name: Docker CI Build Test
+
+# 1. THE TRIGGER
+# Run this robot every time code is pushed to the main branch
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest # This boots up a fresh Linux server in the cloud
+
+    steps:
+      - name: 📥 Grab the code from the repository
+        uses: actions/checkout@v4
+
+      - name: 🔐 Create a Dummy Secret for the Build
+        # Because we didn't upload our real password, we create a fake one 
+        # just so Docker Compose doesn't panic during the build phase!
+        run: |
+          mkdir -p secrets
+          echo "ci_dummy_password" > secrets/db_password.txt
+
+      - name: 🏗️ Test Docker Compose Build
+        # If this command succeeds, the pipeline turns Green!
+        run: docker compose build

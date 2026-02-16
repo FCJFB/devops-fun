@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: marketplace_db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD_FILE: /run/secrets/db_password
+      POSTGRES_DB: marketplace
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    secrets:
+      - db_password
+
+  api:
+    build: ./backend
+    container_name: marketplace_api
+    depends_on:
+      - db
+    secrets:
+      - db_password
+    # Notice we removed the 'ports' block here! 
+    # The API is now completely hidden from the outside world. Only Nginx can talk to it.
+
+  storefront:
+    build: ./frontend
+    container_name: marketplace_storefront
+    ports:
+      - "80:80" # This maps the standard web port (80) to Nginx
+    depends_on:
+      - api
+
+volumes:
+  pgdata:
+
+secrets:
+  db_password:
+    file: ./secrets/db_password.txt
