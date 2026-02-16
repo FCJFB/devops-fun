@@ -38,7 +38,7 @@ You must have [Docker](https://www.docker.com/) and Docker Compose installed on 
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/YOUR_USERNAME/docker-marketplace.git](https://github.com/YOUR_USERNAME/docker-marketplace.git)
+git clone [https://github.com/FCJFB/devops-fun.git](https://github.com/FCJFB/devops-fun.git)
 cd docker-marketplace
 ```
 
@@ -67,4 +67,4 @@ docker compose down
 *(Note: To completely wipe the database and start fresh, run `docker compose down -v`)*
 
 ---
-*Architected and built by [Your Name]. Feel free to reach out on [LinkedIn](Your-Link-Here) or view my other projects.*
+*Architected and built by Felix Falk with the help of AI tools for some code. Feel free to reach out through github DM or view my other projects.*
