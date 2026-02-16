@@ -39,7 +39,7 @@ You must have [Docker](https://www.docker.com/) and Docker Compose installed on 
 ### 1. Clone the Repository
 ```bash
 git clone [https://github.com/FCJFB/devops-fun.git](https://github.com/FCJFB/devops-fun.git)
-cd docker-marketplace
+cd devops-fun
 ```
 
 ### 2. Configure Local Secrets
