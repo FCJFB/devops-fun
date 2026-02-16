@@ -46,7 +46,7 @@ cd devops-fun
 For security, database passwords are not tracked in Git. You need to create a local secret file before booting the engine:
 ```bash
 mkdir secrets
-echo "your_super_secret_password" > secrets/db_password.txt
+echo "supersecretpassword" > secrets/db_password.txt
 ```
 
 ### 3. Boot the Matrix
